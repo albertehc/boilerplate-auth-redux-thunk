@@ -3,7 +3,7 @@ import useNavbarAnimation from "./../../hooks/useNavbarAnimation";
 import C from "./../../components/Navbar";
 import * as S from "./styles";
 import {useDispatch} from "react-redux";
-import * as A from "./../../redux/auth/actions/auth.actions";
+import * as Effect from "./../../redux/auth/effects/auth.effects";
 
 export default React.memo(() => {
     const dispatch = useDispatch();
@@ -12,7 +12,7 @@ export default React.memo(() => {
     const {barAnimation, linkAnimation} = useNavbarAnimation();
 
     const handleLogout = () => {
-        dispatch(A.logoutRequest());
+        dispatch(Effect.logoutEffect());
         closeCollapseMenu();
     };
 

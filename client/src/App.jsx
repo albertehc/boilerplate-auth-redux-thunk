@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import Loader from "react-loader-spinner";
 import Container from "./containers";
 import Views from "./views";
-import * as A from "./redux/auth/actions/auth.actions";
+import * as Effect from "./redux/auth/effects/auth.effects";
 import {Routes} from "./constants/";
 import {AnonRoute} from "./routes/AnonRoute";
 import {PrivateRoute} from "./routes/PrivateRoute";
@@ -14,7 +14,7 @@ const App = () => {
     const {logged, loading} = useSelector((state) => state.auth);
     useEffect(() => {
         if (!logged) {
-            dispatch(A.meRequest());
+            dispatch(Effect.meEffect());
         }
         // eslint-disable-next-line
     }, []);

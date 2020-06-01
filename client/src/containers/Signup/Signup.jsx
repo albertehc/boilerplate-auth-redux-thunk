@@ -6,7 +6,7 @@ import Select from "../../components/Select";
 import {languages, themes} from "../../constants";
 import Input from "./../../components/Input";
 import * as validation from "./../../helpers/auth/authValidations";
-import * as A from "./../../redux/auth/actions/auth.actions";
+import * as Effect from "./../../redux/auth/effects/auth.effects";
 
 export default () => {
     const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export default () => {
 
     const onSubmit = (data) => {
         delete data.password_repeat;
-        dispatch(A.signupRequest(data));
+        dispatch(Effect.signupEffect({payload: data}));
     };
 
     return (

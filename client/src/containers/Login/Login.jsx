@@ -4,14 +4,14 @@ import Form from "./styles";
 import {useDispatch} from "react-redux";
 import Input from "./../../components/Input";
 import * as validation from "./../../helpers/auth/authValidations";
-import * as A from "./../../redux/auth/actions/auth.actions";
+import * as Effect from "./../../redux/auth/effects/auth.effects";
 
 export default () => {
     const dispatch = useDispatch();
     const {register, handleSubmit, errors} = useForm();
 
     const onSubmit = (data) => {
-        dispatch(A.loginRequest(data))
+        dispatch(Effect.loginEffect({ payload: data }))
     };
 
     return (
